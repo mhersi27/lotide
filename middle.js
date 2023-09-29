@@ -1,10 +1,15 @@
 const middle = function(arr) {
-  let result = [];
-  if (arr.length > 2) {
-    const middle = Math.floor(arr.length / 2);
-    arr.length % 2 !== 0 ? result.push(arr[middle]) : result.push(arr[middle - 1], arr[middle]);
+  let midArr = [];
+  if (arr.length <= 2)
+    return midArr;
+  let mid = arr.length / 2;
+  if ((mid % 1) !== 0)
+    midArr[0] = arr[Math.floor(mid)];
+  else {
+    midArr[0] = arr[mid - 1];
+    midArr[1] = arr[mid];
   }
-  return result;
+  return midArr;
 };
 
 module.exports = middle;
