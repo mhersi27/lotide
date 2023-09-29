@@ -1,12 +1,13 @@
-const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-
-const takeUntil = function (array, callback) {
-  let results = [];
-  for (let item of array) {
-    if (item !== callback) {
-      results.push(item);
+const takeUntil = function(arr, callback) {
+  const slice = [];
+  for (const element of arr) {
+    if (!callback(element)) {
+      slice.push(element);
     } else {
-      return results;
+      return slice;
     }
   }
+  return slice;
 };
+
+module.exports = takeUntil;
