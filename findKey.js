@@ -1,7 +1,9 @@
-const findKeyByValue = function (item, value) {
-  for (const key in item) {
-    if (item[key] === value) {
-      return key;
+const findKey = function(object, callback) {
+  for (let item in object) {
+    if (callback(object[item])) {
+      return item;
     }
   }
 };
+
+module.exports = findKey;
